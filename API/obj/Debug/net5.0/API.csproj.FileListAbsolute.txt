@@ -65,3 +65,6 @@ C:\Users\haluk.dogan\Desktop\Api-React\Reactivities\API\bin\Debug\net5.0\MediatR
 C:\Users\haluk.dogan\Desktop\Api-React\Reactivities\API\bin\Debug\net5.0\AutoMapper.dll
 C:\Users\haluk.dogan\Desktop\Api-React\Reactivities\API\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\haluk.dogan\Desktop\Api-React\Reactivities\API\obj\Debug\net5.0\API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\haluk.dogan\Desktop\Api-React\Reactivities\api\bin\Debug\net5.0\FluentValidation.dll
+C:\Users\haluk.dogan\Desktop\Api-React\Reactivities\api\bin\Debug\net5.0\FluentValidation.AspNetCore.dll
+C:\Users\haluk.dogan\Desktop\Api-React\Reactivities\api\bin\Debug\net5.0\FluentValidation.DependencyInjectionExtensions.dll
