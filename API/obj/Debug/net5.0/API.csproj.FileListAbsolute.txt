@@ -68,3 +68,15 @@ C:\Users\haluk.dogan\Desktop\Api-React\Reactivities\API\obj\Debug\net5.0\API.Mvc
 C:\Users\haluk.dogan\Desktop\Api-React\Reactivities\api\bin\Debug\net5.0\FluentValidation.dll
 C:\Users\haluk.dogan\Desktop\Api-React\Reactivities\api\bin\Debug\net5.0\FluentValidation.AspNetCore.dll
 C:\Users\haluk.dogan\Desktop\Api-React\Reactivities\api\bin\Debug\net5.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\haluk.dogan\Desktop\Api-React\Reactivities\API\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\haluk.dogan\Desktop\Api-React\Reactivities\API\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\haluk.dogan\Desktop\Api-React\Reactivities\API\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\haluk.dogan\Desktop\Api-React\Reactivities\API\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\haluk.dogan\Desktop\Api-React\Reactivities\API\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\haluk.dogan\Desktop\Api-React\Reactivities\api\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\haluk.dogan\Desktop\Api-React\Reactivities\api\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\haluk.dogan\Desktop\Api-React\Reactivities\api\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\haluk.dogan\Desktop\Api-React\Reactivities\api\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\haluk.dogan\Desktop\Api-React\Reactivities\api\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\haluk.dogan\Desktop\Api-React\Reactivities\api\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\haluk.dogan\Desktop\Api-React\Reactivities\api\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll

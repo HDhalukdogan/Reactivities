@@ -11,9 +11,9 @@ namespace API.Middleware
 {
     public class ExceptionMiddleware
     {
-        public RequestDelegate _next;
-        public ILogger<ExceptionMiddleware> _logger;
-        public IHostEnvironment _env;
+        public readonly RequestDelegate _next;
+        public readonly ILogger<ExceptionMiddleware> _logger;
+        public readonly IHostEnvironment _env;
         public ExceptionMiddleware(RequestDelegate next, ILogger<ExceptionMiddleware> logger, IHostEnvironment env)
         {
             _next = next;
