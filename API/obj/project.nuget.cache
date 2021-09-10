@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Yj6SpMq94bNHhu6Q9Hu4op9NsS/oUGF1hH5cWmEmW0VV7zFWlX4oVk9oKR1D10osmgPVwvIsm5GW86e8Fv4Z2w==",
+  "dgSpecHash": "HNINclNBbiT/zKFztRDoYQVLD71g0me5yYuWBSPaA0pDDWDhgvKh1J7+do/Za2Pc6SkJgirXeS93qqiSkWmk2g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\haluk.dogan\\Desktop\\Api-React\\Reactivities\\api\\API.csproj",
+  "projectFilePath": "C:\\Users\\haluk.dogan\\Desktop\\Api-React\\Reactivities\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\haluk.dogan\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\haluk.dogan\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
