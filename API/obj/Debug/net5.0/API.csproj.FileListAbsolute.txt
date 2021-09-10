@@ -80,3 +80,5 @@ C:\Users\haluk.dogan\Desktop\Api-React\Reactivities\api\bin\Debug\net5.0\Microso
 C:\Users\haluk.dogan\Desktop\Api-React\Reactivities\api\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\haluk.dogan\Desktop\Api-React\Reactivities\api\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\haluk.dogan\Desktop\Api-React\Reactivities\api\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\haluk.dogan\Desktop\Api-React\Reactivities\API\bin\Debug\net5.0\Infrastructure.dll
+C:\Users\haluk.dogan\Desktop\Api-React\Reactivities\API\bin\Debug\net5.0\Infrastructure.pdb

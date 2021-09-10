@@ -757,6 +757,19 @@
           "bin/placeholder/Domain.dll": {}
         }
       },
+      "Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Application": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Infrastructure.dll": {}
+        }
+      },
       "Persistence/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
@@ -1999,6 +2012,11 @@
       "path": "../Domain/Domain.csproj",
       "msbuildProject": "../Domain/Domain.csproj"
     },
+    "Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../Infrastructure/Infrastructure.csproj",
+      "msbuildProject": "../Infrastructure/Infrastructure.csproj"
+    },
     "Persistence/1.0.0": {
       "type": "project",
       "path": "../Persistence/Persistence.csproj",
@@ -2008,6 +2026,7 @@
   "projectFileDependencyGroups": {
     "net5.0": [
       "Application >= 1.0.0",
+      "Infrastructure >= 1.0.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 5.0.9",
       "Microsoft.EntityFrameworkCore.Design >= 5.0.8",
       "Swashbuckle.AspNetCore >= 5.6.3"
@@ -2042,6 +2061,9 @@
           "projectReferences": {
             "C:\\Users\\haluk.dogan\\Desktop\\Api-React\\Reactivities\\Application\\Application.csproj": {
               "projectPath": "C:\\Users\\haluk.dogan\\Desktop\\Api-React\\Reactivities\\Application\\Application.csproj"
+            },
+            "C:\\Users\\haluk.dogan\\Desktop\\Api-React\\Reactivities\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\haluk.dogan\\Desktop\\Api-React\\Reactivities\\Infrastructure\\Infrastructure.csproj"
             }
           }
         }
