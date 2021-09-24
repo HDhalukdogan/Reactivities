@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\haluk.dogan\\Desktop\\Api-React\\Reactivities\\api\\API.csproj": {}
+    "C:\\Users\\haluk.dogan\\Desktop\\Api-React\\Reactivities\\API\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\haluk.dogan\\Desktop\\Api-React\\Reactivities\\api\\API.csproj": {
+    "C:\\Users\\haluk.dogan\\Desktop\\Api-React\\Reactivities\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\haluk.dogan\\Desktop\\Api-React\\Reactivities\\api\\API.csproj",
+        "projectUniqueName": "C:\\Users\\haluk.dogan\\Desktop\\Api-React\\Reactivities\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\haluk.dogan\\Desktop\\Api-React\\Reactivities\\api\\API.csproj",
+        "projectPath": "C:\\Users\\haluk.dogan\\Desktop\\Api-React\\Reactivities\\API\\API.csproj",
         "packagesPath": "C:\\Users\\haluk.dogan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\haluk.dogan\\Desktop\\Api-React\\Reactivities\\api\\obj\\",
+        "outputPath": "C:\\Users\\haluk.dogan\\Desktop\\Api-React\\Reactivities\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\haluk.dogan\\AppData\\Roaming\\NuGet\\NuGet.Config",
