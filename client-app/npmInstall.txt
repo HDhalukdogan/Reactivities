@@ -1,0 +1,21 @@
+npx create-react-app client-app --use-npm --template typescript
+npm install axios
+npm install semantic-ui-react semantic-ui-css
+npm install uuid
+npm i --save-dev @types/uuid
+npm install mobx mobx-react-lite
+npm install react-router-dom  
+npm install @types/react-router-dom --save-dev
+npm install react-calendar
+npm install @types/react-calendar
+npm install react-toastify
+npm install formik
+npm install yup
+npm install @types/yup --save-dev
+npm install react-datepicker if you get an error about "unable to resolve depenancy" then you can use: npm install react-datepicker --legacy-peer-deps
+npm install @types/react-datepicker --save-dev
+npm ls date-fns <-> npm install date-fns@2.23.0
+npm install react-dropzone
+npm install react-cropper
+npm install @microsoft/signalr
+npm install react-infinite-scroller
