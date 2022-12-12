@@ -1,38 +1,38 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\haluk.dogan\\Desktop\\Api-React\\Reactivities\\Application\\Application.csproj": {}
+    "C:\\Users\\haluk.dogan\\Desktop\\Projects\\React\\Reactivities\\Application\\Application.csproj": {}
   },
   "projects": {
-    "C:\\Users\\haluk.dogan\\Desktop\\Api-React\\Reactivities\\Application\\Application.csproj": {
+    "C:\\Users\\haluk.dogan\\Desktop\\Projects\\React\\Reactivities\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\haluk.dogan\\Desktop\\Api-React\\Reactivities\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Users\\haluk.dogan\\Desktop\\Projects\\React\\Reactivities\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Users\\haluk.dogan\\Desktop\\Api-React\\Reactivities\\Application\\Application.csproj",
+        "projectPath": "C:\\Users\\haluk.dogan\\Desktop\\Projects\\React\\Reactivities\\Application\\Application.csproj",
         "packagesPath": "C:\\Users\\haluk.dogan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\haluk.dogan\\Desktop\\Api-React\\Reactivities\\Application\\obj\\",
+        "outputPath": "C:\\Users\\haluk.dogan\\Desktop\\Projects\\React\\Reactivities\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\haluk.dogan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0"
+          "net7.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
+          "net7.0": {
+            "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\haluk.dogan\\Desktop\\Api-React\\Reactivities\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\haluk.dogan\\Desktop\\Api-React\\Reactivities\\Domain\\Domain.csproj"
+              "C:\\Users\\haluk.dogan\\Desktop\\Projects\\React\\Reactivities\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\haluk.dogan\\Desktop\\Projects\\React\\Reactivities\\Domain\\Domain.csproj"
               },
-              "C:\\Users\\haluk.dogan\\Desktop\\Api-React\\Reactivities\\Persistence\\Persistence.csproj": {
-                "projectPath": "C:\\Users\\haluk.dogan\\Desktop\\Api-React\\Reactivities\\Persistence\\Persistence.csproj"
+              "C:\\Users\\haluk.dogan\\Desktop\\Projects\\React\\Reactivities\\Persistence\\Persistence.csproj": {
+                "projectPath": "C:\\Users\\haluk.dogan\\Desktop\\Projects\\React\\Reactivities\\Persistence\\Persistence.csproj"
               }
             }
           }
@@ -44,20 +44,20 @@
         }
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net7.0": {
+          "targetAlias": "net7.0",
           "dependencies": {
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
-              "version": "[8.1.1, )"
+              "version": "[12.0.0, )"
             },
             "FluentValidation.AspNetCore": {
               "target": "Package",
-              "version": "[10.3.4, )"
+              "version": "[11.2.2, )"
             },
             "MediatR.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
-              "version": "[9.0.0, )"
+              "version": "[11.0.0, )"
             }
           },
           "imports": [
@@ -66,7 +66,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -75,33 +76,33 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\haluk.dogan\\Desktop\\Api-React\\Reactivities\\Domain\\Domain.csproj": {
+    "C:\\Users\\haluk.dogan\\Desktop\\Projects\\React\\Reactivities\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\haluk.dogan\\Desktop\\Api-React\\Reactivities\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\haluk.dogan\\Desktop\\Projects\\React\\Reactivities\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\haluk.dogan\\Desktop\\Api-React\\Reactivities\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\haluk.dogan\\Desktop\\Projects\\React\\Reactivities\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\haluk.dogan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\haluk.dogan\\Desktop\\Api-React\\Reactivities\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\haluk.dogan\\Desktop\\Projects\\React\\Reactivities\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\haluk.dogan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0"
+          "net7.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
+          "net7.0": {
+            "targetAlias": "net7.0",
             "projectReferences": {}
           }
         },
@@ -112,12 +113,12 @@
         }
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net7.0": {
+          "targetAlias": "net7.0",
           "dependencies": {
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[6.0.0-rc.1*, )"
+              "version": "[7.0.0, )"
             }
           },
           "imports": [
@@ -126,7 +127,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -135,36 +137,36 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\haluk.dogan\\Desktop\\Api-React\\Reactivities\\Persistence\\Persistence.csproj": {
+    "C:\\Users\\haluk.dogan\\Desktop\\Projects\\React\\Reactivities\\Persistence\\Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\haluk.dogan\\Desktop\\Api-React\\Reactivities\\Persistence\\Persistence.csproj",
+        "projectUniqueName": "C:\\Users\\haluk.dogan\\Desktop\\Projects\\React\\Reactivities\\Persistence\\Persistence.csproj",
         "projectName": "Persistence",
-        "projectPath": "C:\\Users\\haluk.dogan\\Desktop\\Api-React\\Reactivities\\Persistence\\Persistence.csproj",
+        "projectPath": "C:\\Users\\haluk.dogan\\Desktop\\Projects\\React\\Reactivities\\Persistence\\Persistence.csproj",
         "packagesPath": "C:\\Users\\haluk.dogan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\haluk.dogan\\Desktop\\Api-React\\Reactivities\\Persistence\\obj\\",
+        "outputPath": "C:\\Users\\haluk.dogan\\Desktop\\Projects\\React\\Reactivities\\Persistence\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\haluk.dogan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0"
+          "net7.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
+          "net7.0": {
+            "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\haluk.dogan\\Desktop\\Api-React\\Reactivities\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\haluk.dogan\\Desktop\\Api-React\\Reactivities\\Domain\\Domain.csproj"
+              "C:\\Users\\haluk.dogan\\Desktop\\Projects\\React\\Reactivities\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\haluk.dogan\\Desktop\\Projects\\React\\Reactivities\\Domain\\Domain.csproj"
               }
             }
           }
@@ -176,16 +178,12 @@
         }
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net7.0": {
+          "targetAlias": "net7.0",
           "dependencies": {
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
-              "version": "[6.0.0-rc.1*, )"
-            },
-            "Npgsql.EntityFrameworkCore.PostgreSQL": {
-              "target": "Package",
-              "version": "[6.0.0-rc.1*, )"
+              "version": "[7.0.0, )"
             }
           },
           "imports": [
@@ -194,7 +192,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -203,7 +202,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
