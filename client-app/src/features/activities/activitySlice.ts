@@ -5,38 +5,38 @@ import { PaginatedResult, Pagination, PagingParams } from "../../app/models/pagi
 import { Profile } from "../../app/models/profile";
 import { User } from "../../app/models/user";
 import { store } from "../../app/store/configureStore";
-
+import produce from 'immer';
 interface ActivityState {
-    activityRegistry: Map<string, Activity>;
+    activityRegistry: {};
     selectedActivity: Activity | undefined;
     editMode: boolean;
     loading: boolean;
     loadingInitial: boolean;
     pagination: Pagination | null;
-    pagingParams: PagingParams;
-    predicate: Map<any, any>;
+    pagingParams: any;
+    predicate: {};
 }
 
 const initialState: ActivityState = {
-    activityRegistry: new Map<string, Activity>(),
+    activityRegistry: {},
     selectedActivity: undefined,
     editMode: false,
     loading: false,
     loadingInitial: false,
     pagination: null,
-    pagingParams: new PagingParams(),
-    predicate: new Map().set('all', true)
+    pagingParams: null,
+    predicate: { all: true }
 }
 
 const getAxiosParams = () => {
     const params = new URLSearchParams();
     params.append('pageNumber', store.getState().activity.pagingParams.pageNumber.toString());
     params.append('pageSize', store.getState().activity.pagingParams.pageSize.toString());
-    store.getState().activity.predicate.forEach((value, key) => {
+    Object.entries(store.getState().activity.predicate).forEach(([key, value]) => {
         if (key === 'startDate') {
             params.append(key, (value as Date).toISOString())
         } else {
-            params.append(key, value);
+            params.append(key, value as any);
         }
     })
     return params;
@@ -44,8 +44,9 @@ const getAxiosParams = () => {
 
 
 const getActivity = (id: string) => {
-    return store.getState().activity.activityRegistry.get(id);
-}
+    const ar: { [key: string]: Activity } = store.getState().activity.activityRegistry;
+    return ar[id];
+};
 
 
 export const loadActivities = createAsyncThunk<PaginatedResult<Activity[]>>(
@@ -159,30 +160,32 @@ export const activitySlice = createSlice({
     initialState,
     reducers: {
         setPagingParams: (state, action) => {
-            state.pagingParams = action.payload
+            state.pagingParams = {pageNumber:action.payload.pageNumber,pageSize: action.payload.pageSize};
         },
         setPredicate: (state, action) => {
             const resetPredicate = () => {
-                state.predicate.forEach((value, key) => {
-                    if (key !== 'startDate') state.predicate.delete(key);
-                })
-            }
+                const predicate: { [key: string]: any } = state.predicate;
+                Object.entries(predicate).forEach(([key, value]) => {
+                    if (key !== 'startDate') {
+                        delete predicate[key];
+                    }
+                });
+            };
             switch (action.payload.predicate) {
                 case 'all':
                     resetPredicate();
-                    state.predicate.set('all', true);
+                    state.predicate = { ...state.predicate, all: true };
                     break;
                 case 'isGoing':
                     resetPredicate();
-                    state.predicate.set('isGoing', true);
+                    state.predicate = { ...state.predicate, isGoing: true };
                     break;
                 case 'isHost':
                     resetPredicate();
-                    state.predicate.set('isHost', true);
+                    state.predicate = { ...state.predicate, isHost: true };
                     break;
                 case 'startDate':
-                    state.predicate.delete('startDate');
-                    state.predicate.set('startDate', action.payload.value);
+                    state.predicate = { ...state.predicate, startDate: action.payload.value };
             }
         },
         setPagination: (state, action) => {
@@ -195,15 +198,16 @@ export const activitySlice = createSlice({
             state.selectedActivity = undefined;
         },
         updateAttendeeFollowing: (state, action) => {
-            state.activityRegistry.forEach(activity => {
-                activity.attendees.forEach(attendee => {
+            Object.values(state.activityRegistry).forEach((activity: any) => {
+                activity.attendees.forEach((attendee: any) => {
                     if (attendee.username === action.payload) {
                         attendee.following ? attendee.followersCount-- : attendee.followersCount++;
                         attendee.following = !attendee.following;
                     }
-                })
-            })
+                });
+            });
         },
+
         setActivity: (state, action) => {
             const user = store.getState().user.user;
             if (user) {
@@ -214,7 +218,7 @@ export const activitySlice = createSlice({
                 action.payload.host = action.payload.attendees?.find((x: any) => x.username === action.payload.hostUsername);
             }
             action.payload.date = new Date(action.payload.date!);
-            state.activityRegistry.set(action.payload.id, action.payload);
+            state.activityRegistry = { ...state.activityRegistry, [action.payload.id]: action.payload };
         }
     },
     extraReducers: (builder => {
@@ -247,7 +251,10 @@ export const activitySlice = createSlice({
         builder.addCase(updateActivity.pending, (state) => {
         });
         builder.addCase(updateActivity.fulfilled, (state, action) => {
-            state.activityRegistry.set(action.payload.id, action.payload)
+            state.activityRegistry = {
+                ...state.activityRegistry,
+                [action.payload.id]: action.payload,
+              };
             state.selectedActivity = action.payload
         });
         builder.addCase(updateActivity.rejected, (state, action) => {
@@ -258,7 +265,11 @@ export const activitySlice = createSlice({
         });
         builder.addCase(deleteActivity.fulfilled, (state, action) => {
             state.loading = false;
-            state.activityRegistry.delete(action.payload);
+            const updatedRegistry : { [key: string]: any } = { ...state.activityRegistry };
+            delete updatedRegistry[action.payload];
+            state.activityRegistry = updatedRegistry;
+
+
         });
         builder.addCase(deleteActivity.rejected, (state, action) => {
             state.loading = false;
@@ -269,14 +280,17 @@ export const activitySlice = createSlice({
         builder.addCase(updateAttendance.fulfilled, (state, action) => {
             state.loading = false;
             if (state.selectedActivity?.isGoing) {
-                state.selectedActivity.attendees = state.selectedActivity.attendees.filter(a=>a.username !== action.payload.username);
+                state.selectedActivity.attendees = state.selectedActivity.attendees.filter(a => a.username !== action.payload.username);
                 state.selectedActivity.isGoing = false;
             } else {
                 const attendee = new Profile(action.payload);
                 state.selectedActivity?.attendees.push(attendee);
                 state.selectedActivity!.isGoing = true;
             }
-            state.activityRegistry.set(state.selectedActivity!.id,state.selectedActivity!)
+            state.activityRegistry = {
+                ...state.activityRegistry,
+                [state.selectedActivity!.id]: state.selectedActivity!,
+              };
         });
         builder.addCase(updateAttendance.rejected, (state, action) => {
             state.loading = false;
@@ -287,7 +301,10 @@ export const activitySlice = createSlice({
         builder.addCase(cancelActivityToggle.fulfilled, (state, action) => {
             state.loading = false;
             state.selectedActivity!.isCancelled = !state.selectedActivity?.isCancelled;
-            state.activityRegistry.set(state.selectedActivity!.id, state.selectedActivity!);
+            state.activityRegistry = {
+                ...state.activityRegistry,
+                [state.selectedActivity!.id]: state.selectedActivity!,
+              };
         });
         builder.addCase(cancelActivityToggle.rejected, (state, action) => {
             state.loading = false;
