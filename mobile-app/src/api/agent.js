@@ -27,8 +27,14 @@ const Account = {
     currentUser: () => requests.get('account'),
 }
 
+const Activity = {
+    getActivities: () => requests.get('activities'),
+    getActivity: (id) => requests.get(`activities/${id}`),
+}
+
 const agent = {
-    Account
+    Account,
+    Activity
 }
 
 export default agent
