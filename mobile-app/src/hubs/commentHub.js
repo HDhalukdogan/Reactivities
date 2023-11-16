@@ -29,10 +29,6 @@ export default class CommentHub {
         }
     }
 
-    testHub = () => {
-        console.log('testHub', this.hubConnection)
-    }
-
     sendComment = async (values) => {
         try {
             await this.hubConnection?.invoke('SendComment', values);

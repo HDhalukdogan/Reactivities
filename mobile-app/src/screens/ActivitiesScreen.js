@@ -1,17 +1,43 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React from 'react';
+import { StyleSheet, Text, View, FlatList } from 'react-native';
 import ActitiyCard from '../components/ActitiyCard';
 import useActivity from '../hooks/useActivity';
+
 const ActivitiesScreen = () => {
-    const [activities, activitiesLoaded] = useActivity();
-    const renderedActivities = activities.map(activity => <ActitiyCard key={activity.id} activity={activity} />)
-    return (
-        <View>
-            {activitiesLoaded ? renderedActivities : <Text>Loading...</Text>}
-        </View>
-    )
-}
+  const [activities, activitiesLoaded] = useActivity();
 
-export default ActivitiesScreen
+  const keyExtractor = (item) => item.id.toString();
 
-const styles = StyleSheet.create({})
+  const renderActivity = ({ item }) => (
+    <ActitiyCard key={item.id} activity={item} />
+  );
+
+  return (
+    <View style={styles.container}>
+      {activitiesLoaded ? (
+        <FlatList
+          data={activities}
+          keyExtractor={keyExtractor}
+          renderItem={renderActivity}
+          contentContainerStyle={styles.flatListContainer}
+        />
+      ) : (
+        <Text>Loading...</Text>
+      )}
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#ecf0f1',
+  },
+  flatListContainer: {
+    paddingVertical: 16,
+  },
+});
+
+export default ActivitiesScreen;
