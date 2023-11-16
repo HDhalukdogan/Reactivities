@@ -1,6 +1,7 @@
-import { useEffect } from 'react'
+import { useCallback, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { activitySelectors, fetchActivities, fetchActivity } from '../store';
+import { useFocusEffect } from '@react-navigation/native';
 
 export default (id) => {
     const dispatch = useDispatch();
@@ -14,9 +15,12 @@ export default (id) => {
     } else {
         const activities = useSelector(activitySelectors.selectAll);
         const { activitiesLoaded } = useSelector(state => state.activity)
-        useEffect(() => {
-            getActivities();
-        }, []);
+        useFocusEffect(
+            useCallback(() => {
+                getActivities();
+
+            },[])
+        )
 
         const getActivities = async () => {
             await dispatch(fetchActivities());
