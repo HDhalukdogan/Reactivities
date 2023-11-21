@@ -30,11 +30,17 @@ const Account = {
 const Activity = {
     getActivities: () => requests.get('activities'),
     getActivity: (id) => requests.get(`activities/${id}`),
+    attendActivity: (id) => requests.post(`/activities/${id}/attend`, {})
+}
+
+const Profile = {
+    getProfile: (username) => requests.get(`profiles/${username}`),
 }
 
 const agent = {
     Account,
-    Activity
+    Activity,
+    Profile
 }
 
 export default agent

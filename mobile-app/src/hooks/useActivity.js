@@ -10,8 +10,13 @@ export default (id) => {
         useEffect(() => {
             if (!activity) dispatch(fetchActivity(id));
         }, [id, dispatch, activity])
+        
 
-        return [activity]
+        const refetchActivity=() =>{
+            dispatch(fetchActivity(id))
+        }
+
+        return [activity,refetchActivity]
     } else {
         const activities = useSelector(activitySelectors.selectAll);
         const { activitiesLoaded } = useSelector(state => state.activity)

@@ -3,23 +3,28 @@ import { Button, Image, StyleSheet, Text, TextInput, View, Pressable, ScrollView
 import useActivity from '../hooks/useActivity';
 import CommentHub from '../hubs/commentHub';
 import { useSelector } from 'react-redux';
+import agent from '../api/agent';
 
 const ActivityDetailsScreen = ({ route: { params: { id, imageSource } } }) => {
-  const [activity] = useActivity(id);
+  const [activity,refetchActivity] = useActivity(id);
   const [commentHub] = useState(new CommentHub());
   const { comments } = useSelector(state => state.comment);
   const [term, setTerm] = useState('');
-
+  const { user } = useSelector(state => state.account)
   useEffect(() => {
     commentHub.createHubConnection(id);
     return () => {
       commentHub.clearComment();
     };
   }, [id]);
-
+  
   const sendComment = () => {
     commentHub.sendComment({ body: term, activityId: id }).then(() => setTerm(''));
   };
+
+  const toggleAttend = () => {
+    agent.Activity.attendActivity(id).then(() => refetchActivity());
+  }
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -28,6 +33,17 @@ const ActivityDetailsScreen = ({ route: { params: { id, imageSource } } }) => {
       <View style={styles.activityInfoContainer}>
         <Text style={styles.activityTitle}>{activity.title}</Text>
         <Text style={styles.activityDate}>{(new Date(activity.date)).toLocaleString('tr')}</Text>
+        {
+          activity.attendees.some(attend => attend.displayName === user.displayName)
+            ?
+            <Pressable onPress={toggleAttend} style={[styles.attendButton, {backgroundColor:'gray'}]}>
+              <Text style={styles.attendButtonText}>Cancel Attendence</Text>
+            </Pressable>
+            :
+            <Pressable onPress={toggleAttend} style={styles.attendButton}>
+              <Text style={styles.attendButtonText}>Join Activity</Text>
+            </Pressable>
+        }
         <Text style={styles.activityProperty}>{activity.hostUsername}</Text>
         <Text style={styles.activityProperty}>{activity.description}</Text>
         <Text style={styles.activityProperty}>{activity.city}</Text>
@@ -177,6 +193,14 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   sendButtonText: {
+    color: '#fff',
+  },
+  attendButton: {
+    backgroundColor: '#4CAF50',
+    padding: 10,
+    borderRadius: 5,
+  },
+  attendButtonText: {
     color: '#fff',
   },
 });

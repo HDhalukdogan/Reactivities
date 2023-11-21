@@ -19,7 +19,7 @@ const HomeScreen = ({ navigation }) => {
         <View style={styles.container}>
             <Text style={styles.title}>Activity App {currentUser?.displayName}</Text>
 
-            <Pressable
+            {currentUser && <><Pressable
                 style={({ pressed }) => [
                     styles.button,
                     {
@@ -30,7 +30,18 @@ const HomeScreen = ({ navigation }) => {
             >
                 <Text style={styles.buttonText}>Go To Activities</Text>
             </Pressable>
-
+                <Pressable
+                    style={({ pressed }) => [
+                        styles.button,
+                        {
+                            backgroundColor: pressed ? '#34495e' : '#3498db', // Change color on press
+                        },
+                    ]}
+                    onPress={() => navigation.navigate('Profile', { username: currentUser.username })}
+                >
+                    <Text style={styles.buttonText}>Go To Profile</Text>
+                </Pressable>
+            </>}
             {currentUser ? (
                 <Pressable
                     style={({ pressed }) => [
