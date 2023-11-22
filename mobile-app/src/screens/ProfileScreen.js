@@ -1,51 +1,68 @@
-import React, {  } from 'react';
-import { StyleSheet, Text, View, ActivityIndicator, Image, Alert } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import useProfile from '../hooks/useProfile';
+import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
+import Profile from '../components/Profile';
+import ProfilePhotos from '../components/ProfilePhotos';
+import { Entypo } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
+
+
+
+
 
 const ProfileScreen = ({ navigation, route }) => {
-    const [profile,loading,error] = useProfile(route.params.username);
+  const [profile, loading, error] = useProfile(route.params.username)
+  const layout = useWindowDimensions();
+  const [index, setIndex] = useState(0);
+  const [routes] = useState([
+    { key: 'profile', title: 'Profile',icon: <Entypo name="user" size={16} color="white" />},
+    { key: 'photos', title: 'Photos',icon:<FontAwesome name="photo" size={16} color="white" /> },
+  ]);
 
-  if (loading) {
-    return (
-      <View style={styles.loadingContainer}>
-        <ActivityIndicator size="large" color="#0000ff" />
-      </View>
-    );
-  }
+  //Do not pass inline functions to SceneMap, for example, don't do the following:
+  // const renderScene = SceneMap({
+  //   profile: () => <Profile profile={profile} loading={loading} error={error} navigation={navigation} />,
+  //   photos: ProfilePhotos,
+  // });
 
-  if (error) {
-    Alert.alert('Error', error, [{ text: 'OK', onPress: () => navigation.goBack() }]);
-    return null;
-  }
+  const renderScene = ({ route }) => {
+    switch (route.key) {
+      case 'profile':
+        return <Profile profile={profile} loading={loading} error={error} navigation={navigation} />;
+      case 'photos':
+        return <ProfilePhotos />;
+      default:
+        return null;
+    }
+  };
+
+  const renderTabBar = props => (
+    <TabBar
+      {...props}
+      indicatorStyle={{ backgroundColor: 'white' }}
+      style={{ backgroundColor: '#3498db' }}
+      renderIcon={({ route, focused, color }) => (
+        route.icon
+      )}
+    
+    />
+  );
 
   return (
-    <View style={styles.container}>
-      <Text>{profile.displayName}</Text>
-      <Image style={styles.profileImage} source={{ uri: profile.image }} />
-      <Text>{profile.bio || 'No bio available'}</Text>
-      <Text>Followers: {profile.followersCount}</Text>
-      <Text>Following: {profile.followingCount}</Text>
-    </View>
+    <TabView
+      //lazy={({ route }) => route.name === 'photos'} or lazy
+      navigationState={{ index, routes }}
+      renderScene={renderScene}
+      onIndexChange={setIndex}
+      initialLayout={{ width: layout.width }}
+      tabBarPosition='bottom'
+      renderTabBar={renderTabBar}
+    />
   );
-};
+}
+
 
 export default ProfileScreen;
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  loadingContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  profileImage: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
-    marginVertical: 10,
-  },
-});
+const styles = StyleSheet.create({})

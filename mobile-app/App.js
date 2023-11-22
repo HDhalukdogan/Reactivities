@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import { store } from './src/store';
 import ActivityDetailsScreen from './src/screens/ActivityDetailsScreen';
 import ProfileScreen from './src/screens/ProfileScreen';
+import 'react-native-gesture-handler';
 
 
 const Stack = createNativeStackNavigator();

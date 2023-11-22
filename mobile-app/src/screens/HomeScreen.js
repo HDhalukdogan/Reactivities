@@ -3,7 +3,8 @@ import React, { useCallback, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCurrentUser, logout } from '../store';
 import CommentHub from '../hubs/commentHub';
-
+import { Entypo } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 const HomeScreen = ({ navigation }) => {
     const dispatch = useDispatch();
     const currentUser = useSelector(state => state.account.user)
@@ -28,7 +29,8 @@ const HomeScreen = ({ navigation }) => {
                 ]}
                 onPress={() => navigation.navigate('Activities')}
             >
-                <Text style={styles.buttonText}>Go To Activities</Text>
+                <MaterialCommunityIcons name="dance-ballroom" size={26} color="white" />
+                <Text style={[styles.buttonText,{marginLeft:5}]}>Go To Activities</Text>
             </Pressable>
                 <Pressable
                     style={({ pressed }) => [
@@ -39,7 +41,8 @@ const HomeScreen = ({ navigation }) => {
                     ]}
                     onPress={() => navigation.navigate('Profile', { username: currentUser.username })}
                 >
-                    <Text style={styles.buttonText}>Go To Profile</Text>
+                    <Entypo name="user" size={24} color="white" />
+                    <Text style={[styles.buttonText,{marginLeft:5}]}>Go To Profile</Text>
                 </Pressable>
             </>}
             {currentUser ? (
@@ -52,6 +55,7 @@ const HomeScreen = ({ navigation }) => {
                     ]}
                     onPress={() => dispatch(logout())}
                 >
+                    <Entypo name="log-out" size={24} color="white" />
                     <Text style={styles.buttonText}>Logout</Text>
                 </Pressable>
             ) : (
@@ -64,6 +68,7 @@ const HomeScreen = ({ navigation }) => {
                     ]}
                     onPress={() => navigation.navigate('Login')}
                 >
+                    <Entypo name="login" size={24} color="white" />
                     <Text style={styles.buttonText}>Login or Register</Text>
                 </Pressable>
             )}
@@ -86,6 +91,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
     },
     button: {
+        flexDirection:'row',
         backgroundColor: '#3498db',
         paddingVertical: 15,
         paddingHorizontal: 30,
