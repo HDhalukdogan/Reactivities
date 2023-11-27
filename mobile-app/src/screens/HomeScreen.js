@@ -22,7 +22,6 @@ const HomeScreen = ({ navigation }) => {
             <ImageBackground source={image} resizeMode="cover" style={styles.image}>
 
                 <Text style={styles.title}>Activity App {currentUser?.displayName}</Text>
-
                 {currentUser && <><Pressable
                     style={({ pressed }) => [
                         styles.button,
@@ -30,7 +29,7 @@ const HomeScreen = ({ navigation }) => {
                             backgroundColor: pressed ? '#2c3e50' : '#3498db', // Change color on press
                         },
                     ]}
-                    onPress={() => navigation.navigate('Activities')}
+                    onPress={() => navigation.navigate('ActivityStack')}
                 >
                     <MaterialCommunityIcons name="dance-ballroom" size={26} color="white" />
                     <Text style={[styles.buttonText, { marginLeft: 5 }]}>Go To Activities</Text>
@@ -42,7 +41,7 @@ const HomeScreen = ({ navigation }) => {
                                 backgroundColor: pressed ? '#34495e' : '#3498db', // Change color on press
                             },
                         ]}
-                        onPress={() => navigation.navigate('Profile', { username: currentUser.username })}
+                        onPress={() => navigation.navigate('ProfileStack', { screen: 'Profile', params: { username: currentUser.username } })}
                     >
                         <Entypo name="user" size={24} color="white" />
                         <Text style={[styles.buttonText, { marginLeft: 5 }]}>Go To Profile</Text>
@@ -69,7 +68,7 @@ const HomeScreen = ({ navigation }) => {
                                 backgroundColor: pressed ? '#34495e' : '#3498db', // Change color on press
                             },
                         ]}
-                        onPress={() => navigation.navigate('Login')}
+                        onPress={() => navigation.navigate('ProfileStack', { screen: "Login" })}
                     >
                         <Entypo name="login" size={24} color="white" />
                         <Text style={styles.buttonText}>Login or Register</Text>
@@ -87,9 +86,9 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     image: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     title: {
         fontSize: 24,
@@ -103,7 +102,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 30,
         borderRadius: 8,
         marginVertical: 10,
-        opacity:0.8
+        opacity: 0.8
     },
     buttonText: {
         color: 'white',

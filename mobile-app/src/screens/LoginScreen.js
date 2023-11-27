@@ -1,7 +1,7 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import React from 'react'
 import AuthForm from '../components/AuthForm'
-import agent, { loginUser } from '../store'
+import { loginUser } from '../store'
 import { useDispatch } from 'react-redux'
 
 const LoginScreen = ({ navigation }) => {
