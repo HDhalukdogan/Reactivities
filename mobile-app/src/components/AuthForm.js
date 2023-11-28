@@ -1,13 +1,13 @@
 import React from 'react';
-import { View, TextInput, Button, Text, StyleSheet } from 'react-native';
+import { View, TextInput, Button, Text, StyleSheet, Pressable } from 'react-native';
 import { useForm, Controller } from 'react-hook-form';
 
 const AuthForm = ({ submit }) => {
   const { control, handleSubmit, reset } = useForm({
     mode: 'onChange',
     defaultValues: {
-        email:'bob@test.com',
-        password:'Pa$$w0rd'
+      email: 'bob@test.com',
+      password: 'Pa$$w0rd'
     },
   });
 
@@ -45,7 +45,17 @@ const AuthForm = ({ submit }) => {
           />
         )}
       />
-      <Button title="Submit" color="#4CAF50" onPress={handleSubmit(onSubmit)} />
+      <Pressable
+        style={({ pressed }) => [
+          styles.button,
+          {
+            backgroundColor: pressed ? '#34495e' : '#3498db' 
+          },
+        ]}
+        onPress={handleSubmit(onSubmit)}
+      >
+        <Text style={styles.buttonText}>Login</Text>
+      </Pressable>
     </View>
   );
 };
@@ -64,12 +74,24 @@ const styles = StyleSheet.create({
   },
   input: {
     borderWidth: 1,
-    borderColor: '#4CAF50',
+    borderColor: '#34495e',
     padding: 10,
     marginBottom: 20,
     width: '70%',
     borderRadius: 8,
   },
+  button: {
+    flexDirection: 'row',
+    paddingVertical: 15,
+    paddingHorizontal: 30,
+    borderRadius: 8,
+    marginVertical: 10,
+},
+buttonText: {
+    color: 'white',
+    fontSize: 16,
+    textAlign: 'center',
+},
 });
 
 export default AuthForm;

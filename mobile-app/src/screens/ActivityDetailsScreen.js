@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Image, StyleSheet, Text, TextInput, View, Pressable, ScrollView } from 'react-native';
+import { Image, StyleSheet, Text, TextInput, View, Pressable, ScrollView } from 'react-native';
 import useActivity from '../hooks/useActivity';
 import CommentHub from '../hubs/commentHub';
 import { useSelector } from 'react-redux';
@@ -28,7 +28,6 @@ const ActivityDetailsScreen = ({ navigation,route: { params: { id, imageSource }
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Button title='Go Back' color='black' onPress={navigation.goBack} />
       <Image source={imageSource} style={styles.image} />
 
       <View style={styles.activityInfoContainer}>

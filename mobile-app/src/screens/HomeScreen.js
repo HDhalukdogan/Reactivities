@@ -70,7 +70,7 @@ const HomeScreen = ({ navigation }) => {
                                 backgroundColor: pressed ? '#34495e' : '#3498db', // Change color on press
                             },
                         ]}
-                        onPress={() => navigation.navigate('AppDrawer', { screen: 'ProfileStack', params: { screen: "Login" } })}
+                        onPress={() => navigation.navigate('Account', { screen: 'Account' })}
                     >
                         <Entypo name="login" size={24} color="white" />
                         <Text style={styles.buttonText}>Login or Register</Text>

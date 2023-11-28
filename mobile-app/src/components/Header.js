@@ -1,16 +1,63 @@
-import { Button, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React from 'react';
+import { View, Text, Pressable, StyleSheet } from 'react-native';
+import { FontAwesome } from '@expo/vector-icons';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '../store';
 
 const Header = (props) => {
-    console.log('props', props)
+    const currentUser = useSelector(state => state.account.user);
+    const dispatch = useDispatch();
+
+    const signOut = () => {
+        dispatch(logout())
+        props.navigation.navigate("Home");
+    }
     return (
-        <View>
-            <Text>{props.route.name}</Text>
-            <Button title={props.back.title} onPress={props.navigation.openDrawer}/>
+        <View style={styles.header}>
+            <View style={styles.buttonContainer}>
+                {currentUser && <Pressable
+                    style={styles.button}
+                    onPress={props.navigation.openDrawer}
+                >
+                    <FontAwesome name="navicon" size={24} color="white" />
+                </Pressable>}
+                {props.backForward && <Pressable style={styles.button} onPress={props.navigation.goBack}>
+                    <FontAwesome name="backward" size={24} color="white" />
+                </Pressable>}
+            </View>
+            <Text style={styles.headerText}>{props.route.name}</Text>
+            {currentUser && <Pressable style={styles.button} onPress={signOut}>
+                <Text style={styles.buttonText}>Logout</Text>
+            </Pressable>}
         </View>
-    )
-}
+    );
+};
 
-export default Header
+const styles = StyleSheet.create({
+    header: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        backgroundColor: '#3498db', // You can change the background color
+        paddingTop: 25,
+    },
+    headerText: {
+        color: '#fff', // You can change the text color
+        fontSize: 18,
+        fontWeight: 'bold',
+        paddingHorizontal: 5
+    },
+    buttonContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    button: {
+        padding: 8,
+        marginHorizontal: 5,
+    },
+    buttonText: {
+        color: '#fff', // You can change the button text color
+    },
+});
 
-const styles = StyleSheet.create({})
+export default Header;

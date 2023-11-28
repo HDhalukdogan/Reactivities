@@ -20,24 +20,49 @@ const Drawer = createDrawerNavigator();
 
 const ActivityStack = () => {
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }} >
-      <Stack.Screen name='Activities' component={ActivitiesScreen} />
-      <Stack.Screen name='ActivityDetails' component={ActivityDetailsScreen} />
+    <Stack.Navigator>
+      <Stack.Screen
+        name='Activities'
+        component={ActivitiesScreen}
+        options={{
+          header: (props) => <Header {...props} />
+        }}
+      />
+      <Stack.Screen
+        name='ActivityDetails'
+        component={ActivityDetailsScreen}
+        options={{
+          header: (props) => <Header {...props} backForward/>
+        }}
+      />
     </Stack.Navigator>
   )
 }
 
 const ProfileStack = () => {
   return (
-    <Stack.Navigator screenOptions={{ headerShown: true }}>
+    <Stack.Navigator>
       <Stack.Screen
         name='Profile'
         component={ProfileScreen}
         options={{
-          header: (props) => <Header {...props}/>
+          header: (props) => <Header {...props} />
         }}
       />
-      <Stack.Screen name='Login' component={LoginScreen} />
+    </Stack.Navigator>
+  )
+}
+
+const AccountStack = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name='Login'
+        component={LoginScreen}
+        options={{
+          header: (props) => <Header {...props} backForward />
+        }}
+      />
     </Stack.Navigator>
   )
 }
@@ -46,6 +71,7 @@ const AppDrawer = () => {
   return (
     <Drawer.Navigator
       screenOptions={{
+        headerShown: false,
         drawerStyle: {
           backgroundColor: "white",
           width: width * 0.7,
@@ -103,15 +129,21 @@ const Screens = () => {
     <Stack.Navigator
       initialRouteName='Home'
       screenOptions={{
+        headerShown: false
       }}>
       <Stack.Screen name='Home'
         component={HomeScreen}
         options={{
-          headerTransparent: true,
-          headerShown: false
+          headerTransparent: true
         }}
       />
-      <Stack.Screen name='AppDrawer' component={AppDrawer} options={{ headerShown: false }} />
+      <Stack.Screen name='Account'
+        component={AccountStack}
+        options={{
+          headerTransparent: true
+        }}
+      />
+      <Stack.Screen name='AppDrawer' component={AppDrawer} options={{ headerTransparent: true }} />
     </Stack.Navigator>
   )
 }

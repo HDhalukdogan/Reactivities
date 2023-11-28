@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
 import agent from "../api/agent";
+import { useNavigation } from "@react-navigation/core";
 
 
 export default (username) => {
 
-    const [profile, setProfile] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-    useEffect(() => {
+  const [profile, setProfile] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const navigation = useNavigation();
+  useEffect(() => {
+    if (username) {
       const fetchProfile = async () => {
         try {
           const res = await agent.Profile.getProfile(username);
@@ -19,9 +22,16 @@ export default (username) => {
           setLoading(false);
         }
       };
-  
-      fetchProfile();
-    }, [username]);
 
-return [profile,loading,error]
+      const unsubscribe = navigation.addListener('focus', () => {
+        fetchProfile();
+      });
+  
+      return unsubscribe;
+
+      
+    }
+  }, [username, navigation]);
+
+  return [profile, loading, error]
 }

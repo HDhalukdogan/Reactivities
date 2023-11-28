@@ -14,12 +14,12 @@ import { useSelector } from 'react-redux';
 
 const ProfileScreen = ({ navigation }) => {
   const currentUser = useSelector(state => state.account.user)
-  const [profile, loading, error] = useProfile(currentUser.username)
+  const [profile, loading, error] = useProfile(currentUser?.username)
   const layout = useWindowDimensions();
   const [index, setIndex] = useState(0);
   const [routes] = useState([
-    { key: 'profile', title: 'Profile',icon: <Entypo name="user" size={16} color="white" />},
-    { key: 'photos', title: 'Photos',icon:<FontAwesome name="photo" size={16} color="white" /> },
+    { key: 'profile', title: 'Profile', icon: <Entypo name="user" size={16} color="white" /> },
+    { key: 'photos', title: 'Photos', icon: <FontAwesome name="photo" size={16} color="white" /> },
   ]);
 
   //Do not pass inline functions to SceneMap, for example, don't do the following:
@@ -27,7 +27,6 @@ const ProfileScreen = ({ navigation }) => {
   //   profile: () => <Profile profile={profile} loading={loading} error={error} navigation={navigation} />,
   //   photos: ProfilePhotos,
   // });
-
   const renderScene = ({ route }) => {
     switch (route.key) {
       case 'profile':
@@ -47,7 +46,7 @@ const ProfileScreen = ({ navigation }) => {
       renderIcon={({ route, focused, color }) => (
         route.icon
       )}
-    
+
     />
   );
 
