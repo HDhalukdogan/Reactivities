@@ -6,13 +6,15 @@ import Profile from '../components/Profile';
 import ProfilePhotos from '../components/ProfilePhotos';
 import { Entypo } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
+import { useSelector } from 'react-redux';
 
 
 
 
 
-const ProfileScreen = ({ navigation, route }) => {
-  const [profile, loading, error] = useProfile(route.params.username)
+const ProfileScreen = ({ navigation }) => {
+  const currentUser = useSelector(state => state.account.user)
+  const [profile, loading, error] = useProfile(currentUser.username)
   const layout = useWindowDimensions();
   const [index, setIndex] = useState(0);
   const [routes] = useState([

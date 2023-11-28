@@ -5,7 +5,7 @@ import CommentHub from '../hubs/commentHub';
 import { useSelector } from 'react-redux';
 import agent from '../api/agent';
 
-const ActivityDetailsScreen = ({ route: { params: { id, imageSource } } }) => {
+const ActivityDetailsScreen = ({ navigation,route: { params: { id, imageSource } } }) => {
   const [activity,refetchActivity] = useActivity(id);
   const [commentHub] = useState(new CommentHub());
   const { comments } = useSelector(state => state.comment);
@@ -28,6 +28,7 @@ const ActivityDetailsScreen = ({ route: { params: { id, imageSource } } }) => {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
+      <Button title='Go Back' color='black' onPress={navigation.goBack} />
       <Image source={imageSource} style={styles.image} />
 
       <View style={styles.activityInfoContainer}>

@@ -29,7 +29,7 @@ const HomeScreen = ({ navigation }) => {
                             backgroundColor: pressed ? '#2c3e50' : '#3498db', // Change color on press
                         },
                     ]}
-                    onPress={() => navigation.navigate('ActivityStack')}
+                    onPress={() => navigation.navigate('AppDrawer', { screen: 'ActivityStack', params: { screen: 'Activities' } })}
                 >
                     <MaterialCommunityIcons name="dance-ballroom" size={26} color="white" />
                     <Text style={[styles.buttonText, { marginLeft: 5 }]}>Go To Activities</Text>
@@ -41,7 +41,9 @@ const HomeScreen = ({ navigation }) => {
                                 backgroundColor: pressed ? '#34495e' : '#3498db', // Change color on press
                             },
                         ]}
-                        onPress={() => navigation.navigate('ProfileStack', { screen: 'Profile', params: { username: currentUser.username } })}
+                        onPress={() => navigation.navigate('AppDrawer',
+                            { screen: 'ProfileStack', params: { screen: 'Profile' } }
+                        )}
                     >
                         <Entypo name="user" size={24} color="white" />
                         <Text style={[styles.buttonText, { marginLeft: 5 }]}>Go To Profile</Text>
@@ -68,7 +70,7 @@ const HomeScreen = ({ navigation }) => {
                                 backgroundColor: pressed ? '#34495e' : '#3498db', // Change color on press
                             },
                         ]}
-                        onPress={() => navigation.navigate('ProfileStack', { screen: "Login" })}
+                        onPress={() => navigation.navigate('AppDrawer', { screen: 'ProfileStack', params: { screen: "Login" } })}
                     >
                         <Entypo name="login" size={24} color="white" />
                         <Text style={styles.buttonText}>Login or Register</Text>
