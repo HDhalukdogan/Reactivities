@@ -1,10 +1,11 @@
 import { ImageBackground, Pressable, StyleSheet, Text, View } from 'react-native'
-import React, { useCallback, useEffect } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCurrentUser, logout } from '../store';
 import CommentHub from '../hubs/commentHub';
 import { Entypo } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import ConfirmDialog from '../components/ConfirmDialog';
 const image = require('../../assets/home-image.jpg')
 const HomeScreen = ({ navigation }) => {
     const dispatch = useDispatch();
@@ -17,6 +18,11 @@ const HomeScreen = ({ navigation }) => {
         commentHub.createHubConnection();
         initApp();
     }, [initApp])
+
+    const [visible, setVisible] = useState(false)
+    const handleOkClick = () => {
+        dispatch(logout())
+    }
     return (
         <View style={styles.container}>
             <ImageBackground source={image} resizeMode="cover" style={styles.image}>
@@ -57,7 +63,9 @@ const HomeScreen = ({ navigation }) => {
                                 backgroundColor: pressed ? '#992d22' : '#e74c3c', // Change color on press
                             },
                         ]}
-                        onPress={() => dispatch(logout())}
+                        onPress={() => {
+                            setVisible(true)
+                        }}
                     >
                         <Entypo name="log-out" size={24} color="white" />
                         <Text style={styles.buttonText}>Logout</Text>
@@ -77,6 +85,14 @@ const HomeScreen = ({ navigation }) => {
                     </Pressable>
                 )}
             </ImageBackground>
+            <ConfirmDialog
+                title='Logout'
+                content='Are you sure?'
+                visible={visible}
+                setVisible={setVisible}
+                onOkClick={handleOkClick}
+                onCancelClick={() => {}}
+            />
         </View>
     )
 }

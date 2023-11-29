@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, Pressable, StyleSheet } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,8 +9,7 @@ import { Entypo } from '@expo/vector-icons';
 const Header = (props) => {
     const currentUser = useSelector(state => state.account.user);
     const dispatch = useDispatch();
-    const [visible, setVisible] = React.useState(false);
-
+    const [visible, setVisible] = useState(false);
     const openMenu = () => setVisible(true);
 
     const closeMenu = () => setVisible(false);
