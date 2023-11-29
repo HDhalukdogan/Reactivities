@@ -1,7 +1,9 @@
 import React, { } from 'react';
 import { StyleSheet, Text, View, ActivityIndicator, Image, Alert } from 'react-native';
+import { useTheme } from 'react-native-paper';
 
 const Profile = ({ profile, loading, error, navigation }) => {
+    const theme = useTheme();
 
     if (loading) {
         return (
@@ -17,7 +19,7 @@ const Profile = ({ profile, loading, error, navigation }) => {
     }
 
     return (
-        <View style={styles.container}>
+        <View style={[styles.container, {backgroundColor:theme.colors.surfaceVariant}]}>
             <Text>{profile.displayName}</Text>
             <Image style={styles.profileImage} source={{ uri: profile.image }} />
             <Text>{profile.bio || 'No bio available'}</Text>

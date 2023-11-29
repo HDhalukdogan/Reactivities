@@ -34,7 +34,7 @@ const ActivityDetailsScreen = ({ navigation,route: { params: { id, imageSource }
         <Text style={styles.activityTitle}>{activity.title}</Text>
         <Text style={styles.activityDate}>{(new Date(activity.date)).toLocaleString('tr')}</Text>
         {
-          activity.attendees.some(attend => attend.displayName === user.displayName)
+          activity.attendees.some(attend => attend.displayName === user?.displayName)
             ?
             <Pressable onPress={toggleAttend} style={[styles.attendButton, {backgroundColor:'gray'}]}>
               <Text style={styles.attendButtonText}>Cancel Attendence</Text>

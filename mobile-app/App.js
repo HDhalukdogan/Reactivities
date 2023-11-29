@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import { store } from './src/store';
 import 'react-native-gesture-handler';
 import Screens from "./src/navigation/Screens";
+import { PaperProvider } from 'react-native-paper';
 
 
 const Stack = createNativeStackNavigator();
@@ -12,9 +13,11 @@ export default function App() {
 
   return (
     <Provider store={store}>
-      <NavigationContainer >
-        <Screens />
-      </NavigationContainer>
+      <PaperProvider>
+        <NavigationContainer >
+          <Screens />
+        </NavigationContainer>
+      </PaperProvider>
     </Provider>
   );
 }
